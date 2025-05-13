@@ -1,4 +1,5 @@
-# calculator-js
+# calculator-js 🔢
+
 
 [**Live Demo on GitHub Pages**](https://nicowirtzbiki.github.io/calculator-js/)
 
