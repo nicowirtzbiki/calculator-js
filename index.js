@@ -3,7 +3,7 @@ const root = document.querySelector(":root");
 const input = document.getElementById("input");
 const resultInput = document.getElementById("result");
 
-//Limitar teclado no campo input
+//Limit keyboard on input
 const allowedKeys = [
   "(",
   ")",
@@ -40,7 +40,7 @@ document.getElementById("clear").addEventListener("click", function () {
 });
 
 document.addEventListener("keydown", function (ev) {
-  ev.preventDefault(); //nao deixa haver o comportamento padrao (que é o teclado funcionar)
+  ev.preventDefault(); //doesn`t allow the default behavior (keybord to work)
   if (allowedKeys.includes(ev.key)) {
     input.value += ev.key;
     return;
@@ -62,7 +62,7 @@ document
     if ((button.innerText = "Copy")) {
       button.innerText = "Copied!";
       button.classList.add("success");
-      navigator.clipboard.writeText(resultInput.value); //o que realmente copia
+      navigator.clipboard.writeText(resultInput.value); //what really copies
     } else {
       button.innerText = "Copy";
       button.classList.remove("success");
@@ -94,21 +94,3 @@ document.getElementById("themeSwitcher").addEventListener("click", function () {
     main.dataset.theme = "dark";
   }
 });
-
-// :root {
-//   --bg-color: #212529;
-//   --border-color: #a5ebd3;
-//   --font-color: #a5ebd3;
-//   --primary-color: #d0bef5;
-//   --secondary-color: #a5ebd3;
-//   --error-color: #d154ba;
-// }
-
-// :root {
-//   --bg-color: #f1f5f9;
-//   --border-color: #d154ba;
-//   --font-color: #d154ba;
-//   --primary-color: #26834a;
-//   --secondary-color: #d154ba;
-//   --error-color: #d154ba;
-// }

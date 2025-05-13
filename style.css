@@ -27,11 +27,11 @@ body {
 }
 
 main {
-  display: block; /* Garante que seja tratado como bloco (padrão do <main>) */
-  margin: 0 auto; /* Centraliza horizontalmente */
-  max-width: 40rem; /* Limita a largura máxima (legibilidade) */
-  padding: 0 1.5rem 2.5rem; /* Espaçamento interno */
-  position: relative; /* Permite posicionar elementos filhos com position absoluta */
+  display: block;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 0 1.5rem 2.5rem;
+  position: relative;
   flex: 1;
 }
 
@@ -39,7 +39,7 @@ header {
   padding: 2rem 0;
 }
 
-/* Botão Switcher */
+/* Switcher Button*/
 #themeSwitcher {
   background-color: var(--bg-color);
   border: 0.125rem solid var(--font-color);
@@ -67,8 +67,7 @@ input {
   color: var(--font-color);
   display: block;
   font-size: 1.75rem;
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 1rem;
+  margin: 0 auto;
   text-align: end;
   width: 100%;
 }
