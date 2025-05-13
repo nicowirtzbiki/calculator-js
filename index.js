@@ -2,6 +2,7 @@ const main = document.querySelector("main");
 const root = document.querySelector(":root");
 const input = document.getElementById("input");
 const resultInput = document.getElementById("result");
+const copyButton = document.getElementById("copyToClipboard");
 
 //Limit keyboard on input
 const allowedKeys = [
@@ -37,6 +38,8 @@ document.getElementById("clear").addEventListener("click", function () {
   input.value = "";
   resultInput.value = "";
   resultInput.classList.remove("error");
+  copyButton.innerText = "Copy";
+  copyButton.classList.remove("success");
 });
 
 document.addEventListener("keydown", function (ev) {
@@ -55,26 +58,29 @@ document.addEventListener("keydown", function (ev) {
 
 document.getElementById("equal").addEventListener("click", calculate);
 
-document
-  .getElementById("copyToClipboard")
-  .addEventListener("click", function (ev) {
-    const button = ev.currentTarget;
-    if ((button.innerText = "Copy")) {
-      button.innerText = "Copied!";
-      button.classList.add("success");
-      navigator.clipboard.writeText(resultInput.value); //what really copies
-    } else {
-      button.innerText = "Copy";
-      button.classList.remove("success");
-    }
-  });
+copyButton.addEventListener("click", function (ev) {
+  if (copyButton.innerText === "Copy") {
+    copyButton.innerText = "Copied!";
+    copyButton.classList.add("success");
+    navigator.clipboard.writeText(resultInput.value); //what really copies
+  } else {
+    copyButton.innerText = "Copy";
+    copyButton.classList.remove("success");
+  }
+});
 
 function calculate() {
-  resultInput.value = "ERROR";
-  resultInput.classList.add("error");
-  const result = eval(input.value);
-  resultInput.value = result;
-  resultInput.classList.remove("error");
+  copyButton.innerText = "Copy";
+  copyButton.classList.remove("success");
+
+  try {
+    const result = eval(input.value);
+    resultInput.value = result;
+    resultInput.classList.remove("error");
+  } catch (error) {
+    resultInput.value = "ERROR";
+    resultInput.classList.add("error");
+  }
 }
 
 document.getElementById("themeSwitcher").addEventListener("click", function () {
